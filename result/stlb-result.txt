@@ -1,0 +1,156 @@
+
+result(3333,4886,534183)
+goos: linux
+goarch: amd64
+pkg: splay-test
+cpu: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+BenchmarkSTLB/max_height_splay_by_counting/ration:_1000-8         	
+result(3333,4886,534183)
+
+result(3333,4886,534183)
+
+result(3333,4886,534183)
+
+result(3333,4886,534183)
+
+result(3333,4886,534183)
+
+result(3333,4886,534183)
+1000000000	         0.03482 ns/op
+
+result(4960,4757,501774)
+BenchmarkSTLB/max_height_splay_by_counting/ration:_2000-8         	
+result(4960,4757,501774)
+
+result(4960,4757,501774)
+
+result(4960,4757,501774)
+
+result(4960,4757,501774)
+
+result(4960,4757,501774)
+
+result(4960,4757,501774)
+1000000000	         0.02828 ns/op
+
+result(9662,11552,489561)
+BenchmarkSTLB/max_height_splay_by_counting/ration:_3000-8         	
+result(9662,11552,489561)
+
+result(9662,11552,489561)
+
+result(9662,11552,489561)
+
+result(9662,11552,489561)
+
+result(9662,11552,489561)
+
+result(9662,11552,489561)
+1000000000	         0.03454 ns/op
+
+result(9402,11750,484117)
+BenchmarkSTLB/max_height_splay_by_counting/ration:_4000-8         	
+result(9402,11750,484117)
+
+result(9402,11750,484117)
+
+result(9402,11750,484117)
+
+result(9402,11750,484117)
+
+result(9402,11750,484117)
+
+result(9402,11750,484117)
+1000000000	         0.03550 ns/op
+
+result(9994,8288,481876)
+BenchmarkSTLB/max_height_splay_by_counting/ration:_5000-8         	
+result(9994,8288,481876)
+
+result(9994,8288,481876)
+
+result(9994,8288,481876)
+
+result(9994,8288,481876)
+
+result(9994,8288,481876)
+
+result(9994,8288,481876)
+1000000000	         0.03086 ns/op
+
+result(10403,7148,475617)
+BenchmarkSTLB/max_height_splay_by_counting/ration:_6000-8         	
+result(10403,7148,475617)
+
+result(10403,7148,475617)
+
+result(10403,7148,475617)
+
+result(10403,7148,475617)
+
+result(10403,7148,475617)
+
+result(10403,7148,475617)
+1000000000	         0.02801 ns/op
+
+result(10403,7148,474861)
+BenchmarkSTLB/max_height_splay_by_counting/ration:_7000-8         	
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+1000000000	         0.03613 ns/op
+
+result(10403,7148,474861)
+BenchmarkSTLB/max_height_splay_by_counting/ration:_8000-8         	
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+1000000000	         0.03426 ns/op
+
+result(10403,7148,474861)
+BenchmarkSTLB/max_height_splay_by_counting/ration:_9000-8         	
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+
+result(10403,7148,474861)
+1000000000	         0.02960 ns/op
+
+result(12518,9610,477426)
+BenchmarkSTLB/max_height_splay_by_counting/ration:_10000-8        	
+result(12518,9610,477426)
+
+result(12518,9610,477426)
+
+result(12518,9610,477426)
+
+result(12518,9610,477426)
+
+result(12518,9610,477426)
+
+result(12518,9610,477426)
+1000000000	         0.03619 ns/op
+PASS
+ok  	splay-test	3.086s
