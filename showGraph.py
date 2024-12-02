@@ -2,6 +2,21 @@ import matplotlib.pyplot as plt
 
 name_map = dict()
 
+def trans(bench_name):
+    res = []
+    for i in bench_name:
+        if 'Basic' in i:
+            res.append('default')
+        elif 'random' in i:
+            res.append('random')
+        elif 'max_hei' in i:
+            res.append('deepest')
+        elif 'Linear' in i:
+            res.append('blocking linear op')
+        elif 'STLB' in i:
+            res.append('STLB')
+    return res
+
 def plot_results(name, results):
     bench_name = []
     max_heights = []
@@ -18,7 +33,9 @@ def plot_results(name, results):
 
     fig, ax1 = plt.subplots(figsize=(12, 8))    
 
-    bench_name = [name_map[i] for i in bench_name]
+    # bench_name = [name_map[i] for i in bench_name]
+    bench_name = trans(bench_name)
+    # print(bench_name)
 
     # max height
     ax1.plot(bench_name, max_heights, marker='o', color='#1f77b4', label='max height')
@@ -99,14 +116,15 @@ def parse_bench_file(filename):
 
 if __name__ == "__main__":
     defulat_res = parse_bench_file('result/basic-tree-result.txt')
-    with open('result/splay-tree-numbers.txt', 'r') as f:
-        for line in f:
-            n, nm=line.split()
-            name_map[nm]=n
+    # with open('result/splay-tree-numbers.txt', 'r') as f:
+    #     for line in f:
+    #         n, nm=line.split()
+    #         name_map[nm]=n
 
-    for file in ['random-result.txt', 'max-height-splay-result.txt', 'stlb-result.txt', 'result.txt']:
-        res = parse_bench_file('result/'+file)
-        res = defulat_res + res
-        plot_results(file, res)
+    # for file in ['random-result.txt', 'max-height-splay-result.txt', 'stlb-result.txt', 'result.txt']:
+    file = 'tot_res'
+    res = parse_bench_file(file)
+    res = defulat_res + res
+    plot_results(file, res)
 
                 

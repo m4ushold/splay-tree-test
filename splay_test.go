@@ -141,42 +141,10 @@ func BenchmarkRandom(b *testing.B) {
 			return k * i / (int(math.Log2(float64(i))) + 1)
 		},
 	}
-	functionNames := []string{"sqrt", "log", "log^2", "k(n/ln{n})"}
-	splayCounts := []int{1, 2, 3}
-	ratios := []int{10, 20, 30, 40, 50}
-	bounds := []int{10000, 50000, 100000}
 
 	b.Run("random splay by counting", func(b *testing.B) {
-		for fc := 0; fc < 4; fc++ {
-			for spCnt := 0; spCnt < 3; spCnt++ {
-				b.Run(fmt.Sprintf("function: %s, splayCount: %d", functionNames[fc], splayCounts[spCnt]), func(b *testing.B) {
-					tree := splay.NewRandomByCountSplayTree[*stringValue](nil, functions[fc], splayCounts[spCnt])
-					Execute(tree, editingTrace)
-				})
-			}
-		}
-	})
-
-	b.Run("random splay by k-height", func(b *testing.B) {
-		for r := 0; r < 5; r++ {
-			for spCnt := 0; spCnt < 3; spCnt++ {
-				b.Run(fmt.Sprintf("ratio: %d, splayCount: %d", ratios[r], splayCounts[spCnt]), func(b *testing.B) {
-					tree := splay.NewRandomKSplayTree[*stringValue](nil, ratios[r], splayCounts[spCnt])
-					Execute(tree, editingTrace)
-				})
-			}
-		}
-	})
-
-	b.Run("random splay by bounded height", func(b *testing.B) {
-		for bd := 0; bd < 3; bd++ {
-			for spCnt := 0; spCnt < 3; spCnt++ {
-				b.Run(fmt.Sprintf("bound: %d, splayCount: %d", bounds[bd], splayCounts[spCnt]), func(b *testing.B) {
-					tree := splay.NewRandomBoundSplayTree[*stringValue](nil, bounds[bd], splayCounts[spCnt])
-					Execute(tree, editingTrace)
-				})
-			}
-		}
+		tree := splay.NewRandomByCountSplayTree[*stringValue](nil, functions[0], 1)
+		Execute(tree, editingTrace)
 	})
 
 	b.StopTimer()
@@ -202,42 +170,10 @@ func BenchmarkMaxHeightSplay(b *testing.B) {
 			return k * i / (int(math.Log2(float64(i))) + 1)
 		},
 	}
-	functionNames := []string{"sqrt", "log", "log^2", "k(n/ln{n})"}
-	splayCounts := []int{1, 2, 3}
-	ratios := []int{10, 20, 30, 40, 50}
-	bounds := []int{10000, 50000, 100000}
 
 	b.Run("max height splay by counting", func(b *testing.B) {
-		for fc := 0; fc < 4; fc++ {
-			for spCnt := 0; spCnt < 3; spCnt++ {
-				b.Run(fmt.Sprintf("function: %s, splayCount: %d", functionNames[fc], splayCounts[spCnt]), func(b *testing.B) {
-					tree := splay.NewMaxHeightByCountSplayTree[*stringValue](nil, functions[fc], splayCounts[spCnt])
-					Execute(tree, editingTrace)
-				})
-			}
-		}
-	})
-
-	b.Run("max height splay by k-height", func(b *testing.B) {
-		for r := 0; r < 5; r++ {
-			for spCnt := 0; spCnt < 3; spCnt++ {
-				b.Run(fmt.Sprintf("ratio: %d, splayCount: %d", ratios[r], splayCounts[spCnt]), func(b *testing.B) {
-					tree := splay.NewMaxHeightKSplayTree[*stringValue](nil, ratios[r], splayCounts[spCnt])
-					Execute(tree, editingTrace)
-				})
-			}
-		}
-	})
-
-	b.Run("max height splay by bounded height", func(b *testing.B) {
-		for bd := 0; bd < 3; bd++ {
-			for spCnt := 0; spCnt < 3; spCnt++ {
-				b.Run(fmt.Sprintf("bound: %d, splayCount: %d", bounds[bd], splayCounts[spCnt]), func(b *testing.B) {
-					tree := splay.NewMaxHeightBoundSplayTree[*stringValue](nil, bounds[bd], splayCounts[spCnt])
-					Execute(tree, editingTrace)
-				})
-			}
-		}
+		tree := splay.NewMaxHeightByCountSplayTree[*stringValue](nil, functions[0], 1)
+		Execute(tree, editingTrace)
 	})
 
 	b.StopTimer()
@@ -251,15 +187,27 @@ func BenchmarkSTLB(b *testing.B) {
 	}
 	b.StartTimer()
 
-	thresholds := []int{1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000}
+	// thresholds := []int{1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000}
 
-	b.Run("max height splay by counting", func(b *testing.B) {
-		for i := 0; i < 10; i++ {
-			b.Run(fmt.Sprintf("ration: %d", thresholds[i]), func(b *testing.B) {
-				tree := splay.NewSTLB[*stringValue](nil, thresholds[i])
-				Execute(tree, editingTrace)
-			})
-		}
+	b.Run("STLB", func(b *testing.B) {
+		tree := splay.NewSTLB[*stringValue](nil, 5000)
+		Execute(tree, editingTrace)
+	})
+
+	b.StopTimer()
+}
+
+func BenchmarkNewBlockingLinearOpTree(b *testing.B) {
+	b.StopTimer()
+	editingTrace, err := readEditingTraceFromFile(b)
+	if err != nil {
+		b.Fatal(err)
+	}
+	b.StartTimer()
+
+	b.Run("balancing consecutive linear insert operation", func(b *testing.B) {
+		tree := splay.NewBlockingLinearOpTree[*stringValue](nil)
+		Execute(tree, editingTrace)
 	})
 
 	b.StopTimer()

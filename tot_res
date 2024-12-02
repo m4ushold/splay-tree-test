@@ -1,0 +1,87 @@
+
+result(14677,6884,467832)
+goos: linux
+goarch: amd64
+pkg: splay-test
+cpu: 11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz
+BenchmarkBasicSplayTree-8            	
+result(14677,6884,467832)
+
+result(14677,6884,467832)
+
+result(14677,6884,467832)
+
+result(14677,6884,467832)
+
+result(14677,6884,467832)
+
+result(14677,6884,467832)
+
+result(14677,6884,467832)
+1000000000	         0.08607 ns/op
+
+result(3726,2681,562393)
+BenchmarkRandom/random_splay_by_counting-8         	
+result(4603,4375,564403)
+
+result(4201,3917,561693)
+
+result(3650,3123,560360)
+
+result(3948,2759,563505)
+
+result(4134,3192,563134)
+
+result(3984,3394,562077)
+
+result(4591,4494,560187)
+1000000000	         0.04386 ns/op
+
+result(879,878,574320)
+BenchmarkMaxHeightSplay/max_height_splay_by_counting-8         	
+result(879,878,574320)
+
+result(879,878,574320)
+
+result(879,878,574320)
+
+result(879,878,574320)
+
+result(879,878,574320)
+
+result(879,878,574320)
+1000000000	         0.03577 ns/op
+
+result(9994,8288,481876)
+BenchmarkSTLB/STLB-8                                           	
+result(9994,8288,481876)
+
+result(9994,8288,481876)
+
+result(9994,8288,481876)
+
+result(9994,8288,481876)
+
+result(9994,8288,481876)
+
+result(9994,8288,481876)
+
+result(9994,8288,481876)
+1000000000	         0.02997 ns/op
+
+result(12962,2461,450103)
+BenchmarkNewBlockingLinearOpTree/balancing_consecutive_linear_insert_operation-8         	
+result(12962,2461,450103)
+
+result(12962,2461,450103)
+
+result(12962,2461,450103)
+
+result(12962,2461,450103)
+
+result(12962,2461,450103)
+
+result(12962,2461,450103)
+1000000000	         0.02876 ns/op
+PASS
+ok  	splay-test	4.523s
